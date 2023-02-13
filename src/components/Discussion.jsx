@@ -1,11 +1,16 @@
-export const Discussion = ({discussion}) => {
+import { useState } from 'react';
+export const Discussion = ({discussion,deleteEvent}) => {
     const {url, author, avatarUrl, title, createdAt, answer} = discussion;
-
+    
+   
     const discussionDelete = (e) => {
-        e.preventDefault();
-        console.log('디스커션 서브밋 함수 실행');
-             
+        e.preventDefault();  
+        deleteEvent({deleteID:discussion.id})          
+        console.log('디스커션 딜리트 함수 실행');
+        console.log(discussion.id)
+
       };
+      
 
 
     return (
