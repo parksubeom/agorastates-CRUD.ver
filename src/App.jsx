@@ -62,8 +62,21 @@ const deleteEvent = ( {deleteID} ) => {
     })
   }
 //UPDATE--------------서버로 UPDATE요청을 보내고, 서버로부터 수정데이터가 추가된 데이터를 받는다.  
-const updateEvent = ( {updateID} ) => {
-  console.log(updateID)
+const updateEvent = ( {id, title} ) => {
+  console.log(id)
+  console.log(title)
+  fetch(`http://localhost:4000/discussions/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",        
+      },
+      body: JSON.stringify(title) // 아까 포장해놨던 newObj를 조심스레 POST 아저씨한테 건낸다.
+    })
+    .then(response => response.json()) // 택배가 왔다. 포장을까자
+    .then((data) => {
+      setDiscussions(data);
+    })
+
 }
 
   return (
