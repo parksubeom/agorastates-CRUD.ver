@@ -1,7 +1,7 @@
 import './App.css';
+import React from "react";
 import { Form } from './components/Form';
 import { Discussions } from './components/Discussions';
-
 import { useEffect, useState } from 'react';
 import { Sidebar } from './components/Sidebar';
 
@@ -58,23 +58,24 @@ const deleteEvent = ( {deleteID} ) => {
     })
     .then(response => response.json()) // 택배가 왔다. 포장을까자
     .then((data) => {
-      //set함수는 함수를 화살표 함수를 통해 받으면 첫번째 인자로 state값이
       setDiscussions(data);
     })
   }
 //UPDATE--------------서버로 UPDATE요청을 보내고, 서버로부터 수정데이터가 추가된 데이터를 받는다.  
+const updateEvent = ( {updateID} ) => {
+  console.log(updateID)
+}
+
   return (
+      
       <div>
         <Sidebar/>
       <main>           
         <Form  onSubmit = {onSubmit}  />     
-        <Discussions discussions={discussions} deleteEvent = {deleteEvent}/>
-        
-        
+        <Discussions discussions={discussions} deleteEvent = {deleteEvent} updateEvent = {updateEvent}/>
       </main>
-      </div>
-   
-    
+      </div>  
+      
   );
 }
 
