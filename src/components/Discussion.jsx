@@ -45,7 +45,7 @@ export const Discussion = ({ discussion, deleteEvent, updateEvent }) => {
         </div>
       </div>
       <div>
-        {modal === true ?<UpdateForm titleName = {titleName} updateEvent = {updateEvent} discussion = {discussion}/> : null}
+        {modal === true ?<UpdateForm titleName = {titleName} updateEvent = {updateEvent} discussion = {discussion} setModal = {setModal}/> : null}
       </div>
       
     </li>

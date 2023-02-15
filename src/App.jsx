@@ -54,9 +54,9 @@ const deleteEvent = ( {deleteID} ) => {
       headers: {
         "Content-Type": "application/json",        
       },
-      body: JSON.stringify(deleteID) // 아까 포장해놨던 newObj를 조심스레 POST 아저씨한테 건낸다.
+      body: JSON.stringify(deleteID) 
     })
-    .then(response => response.json()) // 택배가 왔다. 포장을까자
+    .then(response => response.json()) 
     .then((data) => {
       setDiscussions(data);
     })
@@ -65,16 +65,19 @@ const deleteEvent = ( {deleteID} ) => {
 const updateEvent = ( {id, title} ) => {
   console.log(id)
   console.log(title)
+  let updatetitle = {title:title}
   fetch(`http://localhost:4000/discussions/${id}`, {
+      
       method: "PUT",
       headers: {
         "Content-Type": "application/json",        
       },
-      body: JSON.stringify(title) // 아까 포장해놨던 newObj를 조심스레 POST 아저씨한테 건낸다.
+      body: JSON.stringify(updatetitle) 
     })
-    .then(response => response.json()) // 택배가 왔다. 포장을까자
+    .then(response => response.json()) 
     .then((data) => {
       setDiscussions(data);
+      console.log(data)
     })
 
 }
